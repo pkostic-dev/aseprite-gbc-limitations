@@ -15,6 +15,12 @@ Made to be using for creating background for GBC games made using GB Studio.
   - Indicates the position of the first incorrect tile
 - Export palettes (GPL format that can be reimported into Aseprite or GIMP)
 
+## Installing
+
+Download the release file and place the lua file in your Aseprite scripts folder. To find it open Aseprite -> File -> Scripts -> Open Scripts Folder.
+
+Debian : `/home/USER/.config/aseprite/scripts`
+
 ## Future
 
 - Attribute map generator for GBDK ?
