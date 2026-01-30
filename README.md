@@ -29,3 +29,5 @@ Debian : `/home/USER/.config/aseprite/scripts`
 - Additional gbc sprite layer analysis
   - Separate palette and tile pattern count
 - Check if colors match GBC limitations : 15-bit
+
+![Imgur](https://imgur.com/jvn2BHQ.png)
