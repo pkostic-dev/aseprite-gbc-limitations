@@ -1,33 +1,68 @@
-# GBC Limitations Tool
+# GBC Limitations Tools
 
-Aseprite script that helps with managing GBC limitations.
+A collection of Aseprite scripts for managing Game Boy Color hardware limitations during pixel art creation. Specifically made for use with GB Studio.
 
-Made to be using for creating background for GBC games made using GB Studio.
+## Tools
 
-## Features
+### GBC Tile Tool
 
-- Counts the number of unique palettes
-  - Groups palettes with less than 4 colors with 4-color palettes if possible 
-- Counts the number of unique patterns
-- Analyze a single layer or multiple layers
-  - Supports sprite layers and tilemap layers
-- Warns on palettes with more than 5 colors
-  - Indicates the position of the first incorrect tile
-- Export palettes (GPL format that can be reimported into Aseprite or GIMP)
+Analyzes sprites for standard GBC palette compatibility. Ideal for backgrounds, tilesets, and traditional GBC game assets.
 
-## Installing
+**Features:**
+- Counts unique palettes and merges compatible ones
+- Counts unique tile patterns (color-agnostic)
+- Analyzes single or multiple layers (supports image and tilemap layers)
+- Warns when tiles exceed 4 colors, shows problem tile coordinates
+- Export button to generate palettes in GPL format (compatible with Aseprite and GIMP)
 
-Download the release file and place the lua file in your Aseprite scripts folder. To find it open Aseprite -> File -> Scripts -> Open Scripts Folder.
+### GBC Actor Tool
 
-Debian : `/home/USER/.config/aseprite/scripts`
+Creates GB Studio actors with more than 3 colors using sprite layering.
 
-## Future
+**Features:**
+- Analyzes 8x8 tiles and counts colors per tile
+- Optimizes palette usage to minimize total palette count
+- Exports layered sprites separated by palette for GB Studio import
+- Warns when exceeding 8 palettes (GB Studio limit)
+- Safety limit at 32 palettes to prevent crashes
 
-- Attribute map generator for GBDK ?
-- Export individual palettes 
-- Tile comparison to find duplicate tile patterns (very similar tiles)
-- Additional gbc sprite layer analysis
-  - Separate palette and tile pattern count
-- Check if colors match GBC limitations : 15-bit
+## Installation
 
-![Imgur](https://imgur.com/jvn2BHQ.png)
+1. Download the `.lua` files from [Releases](https://github.com/pkostic-dev/aseprite-gbc-limitations/releases)
+2. Place them in your Aseprite scripts folder:
+   - **Linux/Debian:** `~/.config/aseprite/scripts`
+   - **Windows:** `%appdata%\Aseprite\scripts\`
+   - **macOS:** `~/Library/Application Support/Aseprite/scripts/`
+3. In Aseprite: `File > Scripts > Rescan Scripts Folder`
+4. Run via `File > Scripts > [Tool Name]`
+
+## Usage
+
+### GBC Tile Tool
+1. Open your sprite in Aseprite
+2. Run the script
+3. Click "Analyze" for current layer or "Analyze All" for all visible layers
+4. Review palette count and any warnings
+5. Export palettes if needed
+
+### GBC Actor Tool
+1. Open your actor sprite (must be multiple of 8x8)
+2. Run the script
+3. Click "Analyze" to see palette breakdown
+4. Click "Export" to generate layered sprite file for GB Studio
+
+## Requirements
+
+- Aseprite v1.2.10 or newer
+- Sprite dimensions must be multiples of 8
+
+## Future Ideas
+
+- Attribute map generator for GBDK
+- Individual palette export
+- Duplicate tile pattern detection
+- GBC 15-bit color validation
+- Advanced sprite layer analysis
+
+![GBC Tile Tool](https://imgur.com/jvn2BHQ.png)
+![GBC Actor Tool](https://i.imgur.com/asP3pAZ.png)
