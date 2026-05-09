@@ -1,5 +1,5 @@
--- GBC Limitations Tool
--- Helps with managing GBC limitations
+-- GBC Tile Tool
+-- Helps with managing GBC tile limitations for use in GB Studio
 -- Analyzes Game Boy Color compatible palettes in tiles
 -- Supports both image layers and tilemap layers
 -- Script version 1.0
